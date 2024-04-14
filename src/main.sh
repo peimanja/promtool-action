@@ -39,11 +39,11 @@ function installPromtool {
     fi
   fi
 
-  
+
   url="https://github.com/prometheus/prometheus/releases/download/v${promtoolVersion}/prometheus-${promtoolVersion}.linux-amd64.tar.gz"
 
   echo "Downloading Promtool v${promtoolVersion}"
-  curl -s -S -L -o /tmp/promtool_${promtoolVersion} ${url}
+  curl --fail -s -S -L -o /tmp/promtool_${promtoolVersion} ${url}
   if [ "${?}" -ne 0 ]; then
     echo "Failed to download Promtool v${promtoolVersion}"
     exit 1
