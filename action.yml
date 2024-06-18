@@ -6,10 +6,10 @@ branding:
   color: 'purple'
 inputs:
   promtool_actions_subcommand:
-    description: 'Promtool subcommand to execute (configs or rules).'
+    description: 'Promtool subcommand to execute (configs, rules or test).'
     required: true
   promtool_actions_files:
-    description: 'Path to files. Can be something like `configs/*.yml` or `alert_rules/*.yml`.'
+    description: 'Path to files. Can be something like `configs/*.yml`, `alert_rules/*.yml` or `tests/*.yml`.'
     required: true
   promtool_actions_version:
     description: 'Promtool version to install.'
