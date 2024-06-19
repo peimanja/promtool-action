@@ -10,7 +10,7 @@ An exit code of `0` is considered a successful execution.
 
 ## Usage
 
-Promtool GitHub Actions are a single GitHub Action that executes different promtool subcommands depending on the content of the GitHub Actions YAML file. Right now only `rules` and `config` is supported which runs `promtool check rules` and `promtool check config` for the given files.
+Promtool GitHub Actions are a single GitHub Action that executes different promtool subcommands depending on the content of the GitHub Actions YAML file. Right now only `rules`, `config` or `test` is supported which runs `promtool check rules`, `promtool check config` or ` promtool test rules` for the given files.
 
 ```yaml
 name: Check Prometheus Alert rules
@@ -49,14 +49,23 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Test Prometheus rules
+      uses: peimanja/promtool-github-actions@master
+      with:
+        promtool_actions_subcommand: 'test'
+        promtool_actions_files: 'prometheus/tests/*.yml'
+        promtool_actions_version: '2.14.0'
+        promtool_actions_comment: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Inputs
 
 Inputs configure Terraform GitHub Actions to perform different actions.
 
-* `promtool_actions_subcommand` - (Required) The Promtool subcommand to execute. Valid values are `rules` and `config`.
-* `promtool_actions_files` - (Required) Path to files. Can be something like `configs/*.yml` or `alert_rules/*.yml`. 
+* `promtool_actions_subcommand` - (Required) The Promtool subcommand to execute. Valid values are `rules`, `config` and `test`.
+* `promtool_actions_files` - (Required) Path to files. Can be something like `configs/*.yml`, `alert_rules/*.yml` or `tests/*.yml`.
 * `promtool_actions_version` - (Optional) The Promtool version to install and execute (Prometheus bundle version). The default is set to `latest` and the latest stable version will be pulled down automatically.
 * `promtool_actions_comment` - (Optional) Whether or not to comment on GitHub pull requests. Defaults to `true`.
 
