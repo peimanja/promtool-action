@@ -2,7 +2,7 @@
 
 function promtoolTestRules {
   echo "rules: info: testing if Prometheus rule files are valid or not"
-  testRulesOut=$(ls ${promFiles} |	xargs -I{}  promtool test rules {} ${*} 2>&1)
+  testRulesOut=$(ls ${promFiles} |	xargs -I{} promtool test rules {} ${*} 2>&1)
   testRulesExitCode=${?}
 
   # Exit code of 0 indicates success. Print the output and exit.

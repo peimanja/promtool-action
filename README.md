@@ -10,7 +10,7 @@ An exit code of `0` is considered a successful execution.
 
 ## Usage
 
-Promtool GitHub Actions are a single GitHub Action that executes different promtool subcommands depending on the content of the GitHub Actions YAML file. Right now only `rules` and `config` is supported which runs `promtool check rules` and `promtool check config` for the given files.
+Promtool GitHub Actions are a single GitHub Action that executes different promtool subcommands depending on the content of the GitHub Actions YAML file. Right now only `rules`, `config` or `test` is supported which runs `promtool check rules`, `promtool check config` or ` promtool test rules` for the given files.
 
 ```yaml
 name: Check Prometheus Alert rules
