@@ -11,6 +11,9 @@ inputs:
   promtool_actions_files:
     description: 'Path to files. Can be something like `configs/*.yml` or `alert_rules/*.yml`.'
     required: true
+  promtool_actions_flags:
+    description: 'Promtool flags.'
+    default: ''
   promtool_actions_version:
     description: 'Promtool version to install.'
     default: 'latest'

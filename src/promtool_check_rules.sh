@@ -2,7 +2,7 @@
 
 function promtoolCheckRules {
   echo "rules: info: checking if Prometheus alert rule files are valid or not"
-  checkRulesOut=$(promtool check rules ${promFiles} ${*} 2>&1)
+  checkRulesOut=$(promtool check rules ${promtoolFlags} ${promFiles} ${*} 2>&1)
   checkRulesExitCode=${?}
 
   # Exit code of 0 indicates success. Print the output and exit.
