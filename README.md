@@ -34,6 +34,7 @@ jobs:
       with:
         promtool_actions_subcommand: 'rules'
         promtool_actions_files: 'prometheus/alert_rules/*.yml'
+        promtool_actions_flags: '--lint-fatal'
         promtool_actions_version: '2.14.0'
         promtool_actions_comment: true
       env:
@@ -57,6 +58,7 @@ Inputs configure Terraform GitHub Actions to perform different actions.
 
 * `promtool_actions_subcommand` - (Required) The Promtool subcommand to execute. Valid values are `rules` and `config`.
 * `promtool_actions_files` - (Required) Path to files. Can be something like `configs/*.yml` or `alert_rules/*.yml`. 
+* `promtool_actions_flags` - (Optional) The Promtool flags.
 * `promtool_actions_version` - (Optional) The Promtool version to install and execute (Prometheus bundle version). The default is set to `latest` and the latest stable version will be pulled down automatically.
 * `promtool_actions_comment` - (Optional) Whether or not to comment on GitHub pull requests. Defaults to `true`.
 

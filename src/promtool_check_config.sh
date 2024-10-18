@@ -2,7 +2,7 @@
 
 function promtoolCheckConfig {
   echo "rules: info: checking if Prometheus config files are valid or not"
-  checkconfigOut=$(promtool check config ${promFiles} ${*} 2>&1)
+  checkconfigOut=$(promtool check config ${promtoolFlags} ${promFiles} ${*} 2>&1)
   checkconfigExitCode=${?}
 
   # Exit code of 0 indicates success. Print the output and exit.

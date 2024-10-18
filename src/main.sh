@@ -16,6 +16,11 @@ function parseInputs {
     exit 1
   fi
 
+  promtoolFlags=""
+  if [ "${INPUT_PROMTOOL_ACTIONS_FLAGS}" != "" ]; then
+    promtoolFlags=${INPUT_PROMTOOL_ACTIONS_FLAGS}
+  fi
+
   # Optional inputs
   promtoolVersion="latest"
   if [ "${INPUT_PROMTOOL_ACTIONS_VERSION}" != "" ] || [ "${INPUT_PROMTOOL_ACTIONS_VERSION}" != "latest" ]; then
